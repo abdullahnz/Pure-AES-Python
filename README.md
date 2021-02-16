@@ -66,3 +66,12 @@ DECRYPTED: b'Kapan lagi belajar AES'
 ## Contribution
 
 Is free to contribute to this project. ...
+
+## Reference
+
+- https://www.cryptool.org/en/cto/highlights/aes-step-by-step
+- http://www.infosecwriters.com/text_resources/pdf/AESbyExample.pdf
+- https://kavaliro.com/wp-content/uploads/2014/03/AES.pdf
+- https://repository.dinus.ac.id/docs/ajarAdvanced_Encryption_Standard_(AES).pdf
+- https://en.wikipedia.org/wiki/Advanced_Encryption_Standard
+- etc.
