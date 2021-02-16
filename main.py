@@ -78,7 +78,7 @@ def pad(msg):
 def unpad(msg):
     return msg[:-msg[-1]]
 
-def SBoxSubs(msg):
+def SBOXSubs(msg):
     r = b''
     for key in msg:
         r += bytes([SBOX[key]])
@@ -128,7 +128,7 @@ def keyExpansion(key, rconIdx):
     k = [key[i:i+4] for i in range(0, len(key), 4)]
     
     w = shiftArr(k[-1], SHIFT_LEFT)
-    w = SBoxSubs(w)
+    w = SBOXSubs(w)
     w = xor(w, [RCON[rconIdx], 0, 0, 0])
     w = xor(w, k[-4])
 
@@ -199,12 +199,12 @@ def Encrypt(plainText, key):
     s = addRoundKey(plainText, key[0])
     
     for i in range(1, BIT_KEYS[round_key]):
-        s = SBoxSubs(s)
+        s = SBOXSubs(s)
         s = shiftRow(s, SHIFT_LEFT)
         s = mixColumns(s)
         s = addRoundKey(s, key[i])
     
-    s = SBoxSubs(s)
+    s = SBOXSubs(s)
     s = shiftRow(s, SHIFT_LEFT)
     s = addRoundKey(s, key[BIT_KEYS[round_key]])
     
