@@ -71,11 +71,6 @@ BIT_KEYS = {
     32 : 14,
 }
 
-def intConv(s):
-    if type(s) != int:
-        return ord(s)
-    return s
-
 def pad(msg):
     byte = 16 - len(msg) % 16
     return msg + (bytes([byte]) * byte)
@@ -83,18 +78,15 @@ def pad(msg):
 def unpad(msg):
     return msg[:-msg[-1]]
 
-
 def SBoxSubs(msg):
     r = b''
     for key in msg:
-        key = intConv(key)
         r += bytes([SBOX[key]])
     return r
 
 def SBOXInvers(msg):
     r = b''
     for val in msg:
-        val = intConv(val)
         r += bytes([SBOX.index(val)])
     return r
 
@@ -110,11 +102,6 @@ def shiftArr_N(states, N, shiftTo):
     return states
 
 def shiftRow(states, shifTo):
-    states = list(states)
-
-    for i in range(len(states)):
-        states[i] = intConv(states[i])
-
     result = [0] * 16
     
     for i in range(4):
@@ -134,8 +121,6 @@ def shiftRow(states, shifTo):
 def xor(x, y):
     r = b''
     for a, b in zip(x, y):
-        # a = intConv(a)
-        # b = intConv(b)
         r += bytes([a ^ b])
     return r
 
@@ -167,7 +152,6 @@ def keyExpansionGenerate(key):
 
 # Galois Multiplication | totally copy, lol.
 def galoisMult(a, b):
-    a = intConv(a)
     p = 0
     hiBitSet = 0
     for i in range(8):
