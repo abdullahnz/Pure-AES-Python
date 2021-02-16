@@ -53,7 +53,7 @@ PCBC_MODE: e3b0204470ff14e4f0d6834b5113abff5ecfdd208c550573441a2636d7739bb7
 DECRYPTED: b'Kapan lagi belajar AES'
 ```
 
-## Requirements
+## Requirement
 
 - Only python3.x
 
@@ -67,7 +67,7 @@ DECRYPTED: b'Kapan lagi belajar AES'
 
 Is free to contribute to this project. ...
 
-## Reference
+## References
 
 - https://www.cryptool.org/en/cto/highlights/aes-step-by-step
 - http://www.infosecwriters.com/text_resources/pdf/AESbyExample.pdf
