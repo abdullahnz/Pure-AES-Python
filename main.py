@@ -138,7 +138,6 @@ def keyExpansion(key, rconIdx):
 def keyExpansionGenerate(key):
     key = [key]
 
-
     while len(key) <= BIT_KEYS[len(key[0])]:
         key += [keyExpansion(key[-1], len(key))]
     
