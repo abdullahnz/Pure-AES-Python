@@ -1,4 +1,4 @@
-#!/usr.bin/python3
+#!/usr/bin/python3
 
 SBOX = [
     0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76,
@@ -137,7 +137,6 @@ def keyExpansion(key, rconIdx):
 
 def keyExpansionGenerate(key):
     key = [key]
-
 
     while len(key) <= BIT_KEYS[len(key[0])]:
         key += [keyExpansion(key[-1], len(key))]
