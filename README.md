@@ -61,11 +61,6 @@ DECRYPTED: b'Kapan lagi belajar AES'
 
 - Implemented with Class.
 - Support all modes.
-- Support padding oracle attack.
-
-## Contribution
-
-Is free to contribute to this project. ...
 
 ## References
 
