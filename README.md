@@ -1,6 +1,6 @@
 # Advanced Encryption Standard (Rijndael)
 
-Pure AES implemented in python3. Its just for study and analysist how the AES works! :)
+Pure AES implemented in python3. It just for study and analysist :) How AES works !
 
 ## Usage
 
