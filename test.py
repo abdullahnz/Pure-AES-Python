@@ -1,31 +1,30 @@
 #!/usr/bin/python3
 
-from main import *
+from aes import *
 
 IV  = b'0123456789abcdef'
 KEY = b'thats_the_secret'
 MSG = b'Kapan lagi belajar AES'
 
-ecb  = ECB(MSG, KEY)
-cfb  = CFB(MSG, KEY, IV)
-cbc  = CBC(MSG, KEY, IV)
-ofb  = OFB(MSG, KEY, IV)
-pcbc = PCBC(MSG, KEY, IV)
+aes_obj = AES(KEY, IV)
+CBC  = aes_obj.encrypt(MSG, AES.MODE_CBC)
+PCBC = aes_obj.encrypt(MSG, AES.MODE_PCBC)
+ECB  = aes_obj.encrypt(MSG, AES.MODE_ECB)
+OFB  = aes_obj.encrypt(MSG, AES.MODE_OFB)
+CFB  = aes_obj.encrypt(MSG, AES.MODE_CFB)
 
-print(f'ECB_MODE : {ecb.hex()}')
-print(f'DECRYPTED: {InverseECB(ecb, KEY)}\n')
+print(f'CBC: {CBC.hex()}')
+print(f'DEC: {aes_obj.decrypt(CBC, AES.MODE_CBC)}')
 
-print(f'CFB_MODE : {cfb.hex()}')
-print(f'DECRYPTED: {InverseCFB(cfb, KEY, IV)}\n')
+print(f'PCBC: {PCBC.hex()}')
+print(f'DEC: {aes_obj.decrypt(PCBC, AES.MODE_PCBC)}')
 
-print(f'CBC_MODE : {cbc.hex()}')
-print(f'DECRYPTED: {InverseCBC(cbc, KEY, IV)}\n')
+print(f'ECB: {ECB.hex()}')
+print(f'DEC: {aes_obj.decrypt(ECB, AES.MODE_ECB)}')
 
-print(f'OFB_MODE : {ofb.hex()}')
-print(f'DECRYPTED: {InverseOFB(ofb, KEY, IV)}\n')
+print(f'OFB: {OFB.hex()}')
+print(f'DEC: {aes_obj.decrypt(OFB, AES.MODE_OFB)}')
 
-print(f'PCBC_MODE: {pcbc.hex()}')
-print(f'DECRYPTED: {InversePCBC(pcbc, KEY, IV)}\n')
-
-
+print(f'CFB: {CFB.hex()}')
+print(f'DEC: {aes_obj.decrypt(CFB, AES.MODE_CFB)}')
 
